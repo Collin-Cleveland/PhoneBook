@@ -41,10 +41,7 @@ public class PhoneBook {
     }
 
     public Boolean hasEntry(String name, String phoneNumber){
-        if (phonebook.containsKey(name) && phonebook.get(name).contains(phoneNumber)){
-            return true;
-        } else
-        return false;
+        return phonebook.containsKey(name) && phonebook.get(name).contains(phoneNumber);
     }
 
     public List<String> lookup(String name) {
@@ -53,7 +50,7 @@ public class PhoneBook {
     }
 
     public String reverseLookup(String phoneNumber)  {
-        Set<String> keys = getMap().keySet();
+        Set<String> keys = phonebook.keySet();
         String result = "";
         for (String key : keys){
             if (phonebook.get(key).contains(phoneNumber)){
@@ -64,7 +61,7 @@ public class PhoneBook {
     }
 
     public List<String> getAllContactNames() {
-        Set<String> keys = getMap().keySet();
+        Set<String> keys = phonebook.keySet();
         List<String> result = new ArrayList<>(keys);
         return result;
     }
